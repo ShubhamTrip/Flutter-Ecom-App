@@ -1,10 +1,19 @@
 // ignore_for_file: prefer_const_constructors, use_full_hex_values_for_flutter_colors
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ecomapp/networking.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-FirebaseAuth _auth = FirebaseAuth.instance;
+import 'HomePage.dart';
+
 TextEditingController username = TextEditingController();
 TextEditingController password = TextEditingController();
+
+Networking net = Networking();
+
+Future<void> signIn() async {
+  await net.signInWithEmailAndPassword(
+      email: username.text, password: password.text);
+}
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,6 +23,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Firebase.initializeApp();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -112,7 +127,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 50,
                 width: 300,
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      signIn();
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomePage()));
+                    },
                     // ignore: sort_child_properties_last
                     child: Padding(
                         padding: EdgeInsets.all(15),
