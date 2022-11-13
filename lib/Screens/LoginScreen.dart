@@ -1,5 +1,4 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+// ignore_for_file: prefer_const_constructors, use_full_hex_values_for_flutter_colors
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -18,6 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
           margin: EdgeInsets.fromLTRB(5, 40, 5, 5),
           width: double.infinity,
           height: 60,
+          // ignore: sort_child_properties_last
           child: Center(
               child: Text(
             "LavaStore",
@@ -34,17 +34,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 50,
               ),
               Container(
-                child: Icon(Icons.person, size: 100),
                 height: 150,
                 width: 150,
                 decoration: BoxDecoration(
                     color: Colors.blueGrey,
                     borderRadius: BorderRadius.circular(100)),
+                child: Icon(Icons.person, size: 100),
               ),
               SizedBox(
                 height: 50,
               ),
-              Container(
+              SizedBox(
                 height: 50,
                 width: 300,
                 child: TextField(
@@ -72,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: 20,
               ),
-              Container(
+              SizedBox(
                 height: 50,
                 width: 300,
                 child: TextField(
@@ -106,6 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: 300,
                 child: ElevatedButton(
                     onPressed: () {},
+                    // ignore: sort_child_properties_last
                     child: Padding(
                         padding: EdgeInsets.all(15),
                         child: Row(
