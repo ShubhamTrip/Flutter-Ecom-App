@@ -1,3 +1,4 @@
+import 'package:ecomapp/Screens/LoginScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,11 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Hello"),
-        ),
-      ),
+      home: Scaffold(body: LoginScreen()),
     );
   }
 }
