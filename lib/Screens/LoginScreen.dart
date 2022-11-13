@@ -1,5 +1,10 @@
 // ignore_for_file: prefer_const_constructors, use_full_hex_values_for_flutter_colors
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+FirebaseAuth _auth = FirebaseAuth.instance;
+TextEditingController username = TextEditingController();
+TextEditingController password = TextEditingController();
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -48,6 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 50,
                 width: 300,
                 child: TextField(
+                  controller: username,
                   decoration: InputDecoration(
                     hintText: 'Enter Username',
                     hintStyle: TextStyle(color: Colors.grey),
@@ -76,6 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 50,
                 width: 300,
                 child: TextField(
+                  controller: password,
                   obscureText: true,
                   decoration: InputDecoration(
                     hintText: 'Enter Password',
